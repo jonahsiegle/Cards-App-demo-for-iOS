@@ -16,7 +16,8 @@
 @end
 
 @implementation SMPLAppDelegate {
-    UIView *acceptOrDecline;
+
+    CRDCardView *cardView;
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
@@ -61,21 +62,22 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Create the controllers
-    self.frontViewController = [[UIViewController alloc] init];
-    self.frontViewController.view.backgroundColor = [self colorWithHexString:@"131315"];
+    CardTransferViewController *cardViewController = [[CardTransferViewController alloc] init];
 
-//    self.yourCard = [[CRDCardView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, (self.window.frame.size.width - 20.0f), (self.window.frame.size.height - 60.0f))
-//                                                       andName:@"Joe Kennedy"
-//                                                    andTagline:@"Designer"
-//                                                   andLocation:@"Fort Myers, FL"
-//                                                andPhoneNumber:@"5555550123"];
-//    
-//    [self.frontViewController.view addSubview:self.yourCard];
+    cardViewController.view.backgroundColor = [self colorWithHexString:@"131315"];
+
+    cardView = [[CRDCardView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, (self.window.frame.size.width - 20.0f), (self.window.frame.size.height - 60.0f))
+                                                       andName:@" "
+                                                    andTagline:@" "
+                                                   andLocation:@" "
+                                                andPhoneNumber:@" "];
+    
+    [cardViewController.yourCard addSubview:cardView];
     
     
     
     // Step 2: Instantiate.
-    self.revealController = [PKRevealController revealControllerWithFrontViewController:self.frontViewController
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:cardViewController
                                                                      leftViewController:[self leftViewController]];
 
     // Step 3: Configure.
@@ -84,10 +86,33 @@
     
     // Step 4: Apply.
     self.window.rootViewController = self.revealController;
+
+
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.window makeKeyAndVisible];
+    
+    //Set your card
+    CardInputView *inputCard = [[CardInputView alloc]initWithFrame:self.window.frame];
+    [inputCard setDelegate:self];
+    [self.window addSubview:inputCard];
+    
     return YES;
+}
+
+- (void)didFinishInputtingCard:(CardInputView *)view{
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [view setAlpha:0.0f];
+        
+        cardView.nameLabel.text = view.name.text;
+        cardView.taglineLabel.text = view.headline.text;
+        cardView.locationLabel.text = view.local.text;
+        cardView.phoneNumberLabel.text = view.phone.text;
+        
+    }completion:^(BOOL finished) {
+        [view removeFromSuperview];
+    }];
 }
 
 #pragma mark - Receiving Card

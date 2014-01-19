@@ -34,26 +34,15 @@
     
     //Card simply set as UIView, completely customizable.
     self.yourCard = [[UIView alloc]initWithFrame:self.view.bounds];
-    self.yourCard.backgroundColor = [UIColor greenColor];
     
-    
-    UILabel *cardTxt = [[UILabel alloc]initWithFrame:self.yourCard.frame];
-    cardTxt.text = @"Jonah Siegle";
-    cardTxt.textAlignment = NSTextAlignmentCenter;
-    [self.yourCard addSubview:cardTxt];
     
     [self.view addSubview:self.yourCard];
     
     
     //Card simply set as UIView, completely customizable.
     self.incomingCard = [[UIView alloc]initWithFrame:self.view.bounds];
-    self.incomingCard.backgroundColor = [UIColor blueColor];
     
     
-    UILabel *othercardTxt = [[UILabel alloc]initWithFrame:self.yourCard.frame];
-    othercardTxt.text = @"Joe Kennedy";
-    othercardTxt.textAlignment = NSTextAlignmentCenter;
-    [self.incomingCard addSubview:othercardTxt];
     [self.incomingCard setHidden:TRUE];
     [self.view addSubview:self.incomingCard];
     
@@ -110,7 +99,7 @@
             
     
             [UIView animateWithDuration:0.30f animations:^{
-                self.yourCard.transform = CGAffineTransformMakeTranslation(0, -480);
+                self.yourCard.transform = CGAffineTransformMakeTranslation(0, -self.view.frame.size.height);
 
             }completion:^(BOOL finsihed){
                 [self restoreCard];
@@ -129,6 +118,21 @@
     }
     
 }
+
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    UIView *cell = [gestureRecognizer view];
+    CGPoint translation = [gestureRecognizer translationInView:[cell superview]];
+    
+    // Check for horizontal gesture
+    if (fabsf(translation.y) > fabsf(translation.x))
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
 
 - (void)restoreCard{
     self.yourCard.transform = CGAffineTransformMakeTranslation(0, self.view.bounds.size.height);

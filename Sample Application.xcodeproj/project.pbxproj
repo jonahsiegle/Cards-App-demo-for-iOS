@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C95D580188BD15E00F55666 /* CardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C95D57F188BD15E00F55666 /* CardInputView.m */; };
+		8C95D582188BDBCA00F55666 /* dashed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C95D581188BDBCA00F55666 /* dashed@2x.png */; };
 		E467AC94188B0BD300EC1807 /* card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E467AC93188B0BD300EC1807 /* card@2x.png */; };
 		E467AC97188B0F4C00EC1807 /* collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E467AC96188B0F4C00EC1807 /* collection@2x.png */; };
 		E467AC9A188B11EC00EC1807 /* CardTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E467AC99188B11EC00EC1807 /* CardTransferViewController.m */; };
@@ -24,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		0A396F3EF65A4013A18997B5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8C95D57E188BD15E00F55666 /* CardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardInputView.h; sourceTree = "<group>"; };
+		8C95D57F188BD15E00F55666 /* CardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardInputView.m; sourceTree = "<group>"; };
+		8C95D581188BDBCA00F55666 /* dashed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashed@2x.png"; sourceTree = "<group>"; };
 		B2B6A3A9BBAC4F6B85FC5634 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E467AC93188B0BD300EC1807 /* card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@2x.png"; sourceTree = "<group>"; };
 		E467AC96188B0F4C00EC1807 /* collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collection@2x.png"; sourceTree = "<group>"; };
@@ -65,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C95D57D188BD09E00F55666 /* Card Input View */ = {
+			isa = PBXGroup;
+			children = (
+				8C95D57E188BD15E00F55666 /* CardInputView.h */,
+				8C95D57F188BD15E00F55666 /* CardInputView.m */,
+			);
+			name = "Card Input View";
+			sourceTree = "<group>";
+		};
 		E467AD1C188B531800EC1807 /* Jonah's Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +91,7 @@
 		E467AD1D188B532500EC1807 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C95D57D188BD09E00F55666 /* Card Input View */,
 				E467AD21188B53E300EC1807 /* Card */,
 			);
 			name = "Custom Views";
@@ -103,6 +118,7 @@
 		F92FE58218152D8E00668004 = {
 			isa = PBXGroup;
 			children = (
+				8C95D581188BDBCA00F55666 /* dashed@2x.png */,
 				F92FE59418152D8E00668004 /* Sample Application */,
 				F92FE58D18152D8E00668004 /* Frameworks */,
 				F92FE58C18152D8E00668004 /* Products */,
@@ -231,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C95D582188BDBCA00F55666 /* dashed@2x.png in Resources */,
 				E467AC97188B0F4C00EC1807 /* collection@2x.png in Resources */,
 				E467AC94188B0BD300EC1807 /* card@2x.png in Resources */,
 				F92FE59918152D8E00668004 /* InfoPlist.strings in Resources */,
@@ -279,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47B8D90188B701D001B4708 /* CRDSlidingCardViewController.m in Sources */,
+				8C95D580188BD15E00F55666 /* CardInputView.m in Sources */,
 				F92FE59F18152D8E00668004 /* SMPLAppDelegate.m in Sources */,
 				E467AC9A188B11EC00EC1807 /* CardTransferViewController.m in Sources */,
 				E467AD20188B53D800EC1807 /* CRDCardView.m in Sources */,

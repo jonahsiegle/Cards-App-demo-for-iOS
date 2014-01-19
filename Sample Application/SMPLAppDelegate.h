@@ -13,10 +13,14 @@
 
 #import "SMPLAppDelegate.h"
 
-@interface SMPLAppDelegate : UIResponder <UIApplicationDelegate, UIGestureRecognizerDelegate>
+#import "CardTransferViewController.h"
+
+#import "CardInputView.h"
+
+@interface SMPLAppDelegate : UIResponder <UIApplicationDelegate, UIGestureRecognizerDelegate, CardInputViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property UIViewController *frontViewController;
+//@property UIViewController *frontViewController;
 
 
 @end
